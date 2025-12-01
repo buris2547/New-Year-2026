@@ -17,10 +17,6 @@ export default function ConfettiParticles({ active, onComplete }: ConfettiPartic
       const duration = 60000; // 60 วินาที (1 นาที)
       const animationEnd = Date.now() + duration;
 
-      const randomInRange = (min: number, max: number) => {
-        return Math.random() * (max - min) + min;
-      };
-
       // ยิง confetti แบบต่อเนื่อง
       const interval = setInterval(() => {
         const timeLeft = animationEnd - Date.now();

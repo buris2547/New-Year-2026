@@ -9,7 +9,7 @@ interface P5FireworksProps {
 
 export default function P5Fireworks({ active, onComplete }: P5FireworksProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const fireworksRef = useRef<any>(null);
+  const fireworksRef = useRef<{ stop: () => void } | null>(null);
 
   useEffect(() => {
     if (!active || !containerRef.current) return;

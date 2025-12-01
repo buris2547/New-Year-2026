@@ -22,7 +22,9 @@ export default function Confetti({ show }: ConfettiProps) {
   useEffect(() => {
     if (!show) return;
 
-    const colors = [
+    // ใช้ setTimeout เพื่อหลีกเลี่ยง cascading renders
+    const timer = setTimeout(() => {
+      const colors = [
       "#FFD700", // Gold
       "#FF69B4", // Hot Pink
       "#00CED1", // Dark Turquoise
@@ -45,7 +47,10 @@ export default function Confetti({ show }: ConfettiProps) {
         rotation: Math.random() * 360,
       });
     }
-    setConfetti(pieces);
+      setConfetti(pieces);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [show]);
 
   if (!show) return null;

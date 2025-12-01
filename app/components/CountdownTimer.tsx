@@ -22,7 +22,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
         try {
           const audio = new Audio('/celebration.mp3');
           audio.play().catch(() => console.log('Audio playback failed'));
-        } catch (e) {
+        } catch {
           console.log('Audio not available');
         }
       }

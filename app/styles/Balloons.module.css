@@ -1,0 +1,47 @@
+/* Balloons Effects */
+.container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -100px;
+}
+
+.balloonBody {
+  position: relative;
+  border-radius: 50%;
+}
+
+.shine {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.string {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0.5px;
+  background: #4b5563;
+  transform: translateX(-50%);
+}
+
+@keyframes balloon-float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(var(--drift)) rotate(var(--rotate));
+    opacity: 0;
+  }
+}
